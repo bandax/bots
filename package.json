@@ -2,7 +2,7 @@
   "name": "bot-test1",
   "version": "1.0.0",
   "description": "This is just a test",
-  "main": "botHola.js",
+  "main": "holaBot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
