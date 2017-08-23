@@ -12,6 +12,19 @@ var botConnectorOptions = {
 var connector = new builder.ChatConnector(botConnectorOptions);
 var bot = new builder.UniversalBot(connector);
 
+bot.use({
+    botbuilder: (session, next) => {     
+        if (session.message.address.channelId === 'slack') {
+            if (session.message.sourceEvent.SlackMessage) {
+                if (session.message.sourceEvent.SlackMessage.type === 'message') {
+                    return;
+                }
+            }
+        }
+        next();
+    }
+});
+
 bot.dialog('/', function (session) {
     
     //respond with user's message
